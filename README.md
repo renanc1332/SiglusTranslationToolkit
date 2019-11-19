@@ -3,7 +3,7 @@
 STT(Siglus Translation Toolkit) : A Toolkit for translation the Siglus engine.  
 <br/>
 # References
-I have referenced somne other source repositories.
+I have referenced some other source repositories.
 
 Referened repos:  
   
