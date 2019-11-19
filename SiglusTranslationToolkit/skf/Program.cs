@@ -36,14 +36,14 @@ namespace skf
             {
                 System.Console.WriteLine("Process Found.");
                 System.Console.WriteLine("Keys Finding...");
-                SiglusKeyFinder.KeyFinder.Key[] Keys = SiglusKeyFinder.KeyFinder.ReadProcess(PID);
-                string MSG = "Keys found:\n";
-                foreach (SiglusKeyFinder.KeyFinder.Key Key in Keys)
-                    MSG += Key.KeyStr + "\n---------------------------\n";
-                System.Console.WriteLine(MSG);
-
                 try
                 {
+                    SiglusKeyFinder.KeyFinder.Key[] Keys = SiglusKeyFinder.KeyFinder.ReadProcess(PID);
+                    string MSG = "Keys found:\n";
+                    foreach (SiglusKeyFinder.KeyFinder.Key Key in Keys)
+                        MSG += Key.KeyStr + "\n---------------------------\n";
+                    System.Console.WriteLine(MSG);
+
                     StreamReader sr = new StreamReader(new FileStream("stt.cfg", FileMode.Open));
 
                     List<string> fileLines = new List<string>();
@@ -82,9 +82,13 @@ namespace skf
                 }
                 catch
                 {
-                    System.Console.WriteLine("File Error. Cannot open or create stt.cfg");
+                    System.Console.WriteLine("Error. Process crashed or stt.cfg is corrupted.");
                 }
             }
+
+
+            System.Console.WriteLine("\n==Press Any Key==");
+            Console.ReadKey(false);
         }
     }
 }
