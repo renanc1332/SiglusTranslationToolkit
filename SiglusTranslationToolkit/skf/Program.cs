@@ -78,7 +78,7 @@ namespace skf
 
                     sw.Close();
 
-                    System.Console.WriteLine("keys wrote in stt.cfg.");
+                    System.Console.WriteLine("The keys are stored in stt.cfg.");
                 }
                 catch
                 {
