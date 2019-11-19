@@ -1,7 +1,9 @@
 # STT(Siglus Translation Toolkit) 1.0 rev.A
 
-STT(Siglus Translation Toolkit) : A Toolkit for translation the Siglus engine.
+STT(Siglus Translation Toolkit) : A Toolkit for translation the Siglus engine.  
 
+
+# References
 I have referenced somne other source repositories.
 
 Referened repos:  
