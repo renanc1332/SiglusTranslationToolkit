@@ -3,9 +3,7 @@
 STT(Siglus Translation Toolkit) : An Un/Repack Toolkit for Siglus engine. It support *.dbs, *.omv, Scene.pkg, Gameexe.dat.  
 <br/>
 # References
-It has referenced some other source repositories.
-
-Referened repos:  
+The Program has referenced some of the following source repositories:
   
 https://github.com/marcussacana/SiglusSceneManager  
 https://github.com/yanhua0518/GALgameScriptTools  
