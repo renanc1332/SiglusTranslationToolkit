@@ -11,6 +11,6 @@ https://github.com/jansonseth/Summer-Pockets-Tools
 https://github.com/iotivity/iotivity  
 
 # Release Note
-- 1.01 rev.A
+- 1.01 rev.A(20/10/13)
   - Bug fix (dbs Script truncation)
   - Block comment, fixed spacing function added.
