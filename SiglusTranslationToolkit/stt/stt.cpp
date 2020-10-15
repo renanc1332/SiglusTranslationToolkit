@@ -20,7 +20,7 @@ namespace stt
 {
 	void printUsage()
 	{
-		std::wcout << L"Siglus Translation Toolkit 1.0 rev.A (2019/11/20) -- made by renan" << std::endl;
+		std::wcout << L"Siglus Translation Toolkit 1.01 rev.A (2020/10/13) -- made by renan" << std::endl;
 		std::wcout << L"git repo : https://github.com/renanc1332/SiglusTranslationToolkit" << std::endl << std::endl;
 
 		std::wcout << L"Usage: stt <options> <files>" << std::endl << std::endl;

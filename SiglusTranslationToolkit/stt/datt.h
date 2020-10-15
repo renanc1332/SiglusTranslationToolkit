@@ -3,6 +3,7 @@
 
 #ifdef INCLUDE_DATT
 #include <vector>
+#include <string>
 namespace stt
 {
 	void RepackDAT(std::wstring inFile, std::wstring outPath, int compressionLevel);

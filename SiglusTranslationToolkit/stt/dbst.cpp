@@ -249,7 +249,27 @@ namespace stt
 
 				correctCount = std::distance(dataIndex.begin(), it);
 
-				if (isUTF && koreanForceSpacing)
+				line = std::wstring(line.begin() + line.find(L'●', 1) + 1, line.end());
+
+				int commentBracketIndex[2] = { 0,0 };
+				commentBracketIndex[0] = line.find(L"/*");
+				commentBracketIndex[1] = line.find(L"*/");
+				
+				if (commentBracketIndex[0] != std::wstring::npos && commentBracketIndex[1] != std::wstring::npos && commentBracketIndex[0] < commentBracketIndex[1])
+				{
+					line.erase(commentBracketIndex[0], commentBracketIndex[1] - commentBracketIndex[0] + 2);
+				}
+
+
+				bool fixSpacing = false;
+				std::wstring fixSpacingCommand = L"%%{fix_spacing}:";
+				if (line.length() >= fixSpacingCommand.length() && line.substr(0, fixSpacingCommand.length()) == fixSpacingCommand)
+				{
+					fixSpacing = true;
+					line.erase(0, fixSpacingCommand.length());
+				}
+
+				if (!fixSpacing && isUTF && koreanForceSpacing)
 				{
 					std::wstring line2;
 					for (wchar_t ch : line)
@@ -263,7 +283,7 @@ namespace stt
 					line = line2;
 				}
 
-				lineData[correctIndex][correctCount].stringData = std::wstring(line.begin() + line.find(L'●', 1)+1, line.end());
+				lineData[correctIndex][correctCount].stringData = line;
 			}
 		}
 
@@ -323,7 +343,15 @@ namespace stt
 		dbs.seekp(0);
 		dbs.write(reinterpret_cast<char*>(&dbsSize), sizeof(unsigned int));
 		dbs.seekp(0, std::stringstream::end);
-		std::vector<unsigned char> dummy(32-dbsSize%32, 0);
+
+		/*
+		// BUG : Script truncation occurred.
+		// This solved by setting the default size of the dummy to 64 or more.
+		*/
+
+		// std::vector<unsigned char> dummy(32-dbsSize%32, 0);
+		std::vector<unsigned char> dummy(64-dbsSize%32, 0);
+
 		dbs.write(reinterpret_cast<char*>(&dummy[0]), dummy.size());
 
 		std::string rawstr = dbs.str();
